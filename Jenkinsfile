@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         withMaven(maven : 'mvn-3.6.3') {
-          sh "mvn package"
+          sh "export JAVA_HOME=${tool 'jdk-11'}/bin; mvn package"
         }
       }
     }
